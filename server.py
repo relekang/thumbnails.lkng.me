@@ -19,15 +19,28 @@ URL = 'https://unsplash.imgix.net/photo-1422405153578-4bd676b19036' \
 os.makedirs(thumbnails_path(None), exist_ok=True)
 
 for size in ['200x200', '200', 'x200']:
+    path = 'no-crop-{}.jpg'.format(size)
     save(
         thumbnails.get_thumbnail(URL, size).image,
-        thumbnails_path('no-crop-{}.jpg'.format(size))
+        thumbnails_path(path)
     )
+    print(path)
+
 for crop in ['top', 'right', 'bottom', 'left', 'center']:
+    path = 'crop-{}-200x200.jpg'.format(crop)
     save(
         thumbnails.get_thumbnail(URL, '200x200', crop).image,
-        thumbnails_path('crop-{}-200x200.jpg'.format(crop))
+        thumbnails_path(path)
     )
+    print(path)
+
+for crop in ['20 20', '20 50', '60 60', '0 100', '50 50']:
+    path = 'crop-{}-200x200.jpg'.format(crop.replace(' ', '_'))
+    save(
+        thumbnails.get_thumbnail(URL, '200x200', crop).image,
+        thumbnails_path(path)
+    )
+    print(path)
 
 
 @app.route("/")
