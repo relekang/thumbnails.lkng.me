@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <title>python-thumbnails status</title>
     <style>
+      ul {
+        width: 100%;
+        max-width: 860px;
+        margin: 10px auto;
+      }
       li {
         list-style-type: none;
         padding: 30px 0 0 0;
@@ -19,7 +24,7 @@
     <ul>
     {% for image in thumbnails %}
       <li>
-        <img src={{ image.url }} alt="image.title"> <br/>
+      <img src={{ image.url }} alt="{{ image.title }}"> <br/>
         {{ image.title }}
       </li>
     {% endfor %}
