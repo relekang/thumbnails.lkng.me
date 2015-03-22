@@ -24,7 +24,7 @@
     <ul>
     {% for image in thumbnails %}
       <li>
-      <img src={{ image.url }} alt="{{ image.title }}"> <br/>
+      <img src={{ image.thumb.url }} alt="{{ image.title }}"> <br/>
         {{ image.title }}
       </li>
     {% endfor %}
